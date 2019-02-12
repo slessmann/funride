@@ -1,0 +1,8 @@
+
+
+<div>
+
+<% User.all.each do |u| %>
+		<%= link_to "add #{u.user_name}", ride_ride_users_path(@ride, user_id: u.id), method: :post  %>
+	<% end %>
+</div>

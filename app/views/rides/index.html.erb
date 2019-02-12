@@ -1,0 +1,43 @@
+<div>
+
+<center>
+	
+	Rides I attend
+
+	<ul>
+
+
+	<% @rides.each do |ride| %>
+
+		<%= ride.name %>
+		<%= ride.date %>
+		<%= ride.location %>
+		<%= ride.ride_type %>
+		<img src = '<%= ride.image %>'>
+		<%= link_to "See Details", "/users/#{@user.id}/rides/#{ride.id}", :class => 'navbar-link'  %>
+
+	
+	<% end %>
+</ul>
+
+	Rides I created
+	<ul>
+	<% @created_rides.each do |ride| %>
+
+		<%= ride.name %>
+		<%= ride.date %>
+		<%= ride.location %>
+		<%= ride.ride_type %>
+		<%= image_tag(ride.thumbnail) %>
+		<%= link_to "See Details", "/users/#{@user.id}/rides/#{ride.id}", :class => 'navbar-link'  %>
+
+	
+	
+	<% end %>
+</ul>
+
+</center>
+
+
+</div>
+	
