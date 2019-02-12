@@ -28,6 +28,14 @@ class RidesController < ApplicationController
 		redirect_to user_rides_path(current_user)
 	end
 
+	def destroy 
+		@user = User.find(params[:user_id])
+		@ride = Ride.find(params[:id])
+			if @user.id == @ride.user_id 
+				@ride.delete
+			end
+		redirect_to user_rides_path(current_user)
+	end
 
 
 
