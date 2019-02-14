@@ -18,7 +18,9 @@
 		<img src = '<%= @ride.image %>'>
 
 		<% if @user.id == @ride.user_id %>
-			<%= button_to("Delede Ride", [@user, @ride], method: :delete) %>
+			<%= button_to("Delete Ride", [@user, @ride], method: :delete) %>
+			<% else %>
+			<%= button_to("Unattend", ride_ride_user_path(@ride, @user), method: :delete) %>
 		<% end %>
 		
 	

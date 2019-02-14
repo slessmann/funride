@@ -32,13 +32,10 @@ class RidesController < ApplicationController
 		@user = User.find(params[:user_id])
 		@ride = Ride.find(params[:id])
 			if @user.id == @ride.user_id 
-				@ride.delete
+				@ride.destroy
 			end
 		redirect_to user_rides_path(current_user)
 	end
-
-
-
 
 	private
 	def ride_params
