@@ -21,7 +21,7 @@ body {
 
 .create{
 	text-align: center;
-	font-size: 24px;
+	font-size: 32px;
 	font-weight: bold;
 	background-color: green;
 	color: white;
@@ -30,6 +30,44 @@ body {
 
 img{width: 500px;
 	heigth: 500px;
+}
+
+.standard-label{ 
+	width: 40%;
 	
+	font-size: 22px;
+}
+
+.date-label{
+	width: 21%;
+	
+	font-size: 22px;
+}
+
+.time-label{
+	width: 21%;
+	
+	font-size: 22px;
+}
+
+.select-label{
+	width: 18%;
+
+	font-size: 22px;
 
 }
+
+.description-label{
+	width: 40%;
+	
+	font-size: 22px;
+}
+
+.image-label{
+	width: 40%;
+
+	font-size: 22px;
+}
+
+.submit-button{
+	}

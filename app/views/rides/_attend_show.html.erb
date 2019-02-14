@@ -1,0 +1,21 @@
+
+	Ride details
+	<ul>
+
+
+		<%= @ride.name %>
+		<%= @ride.date %>
+		<%= @ride.location %>
+		<%= @ride.ride_type %>
+		<img src = '<%= @ride.image %>'>
+
+		<% if user_signed_in? and current_user.id == @ride.user_id %>
+				<%= button_to("Delete Ride", [@user, @ride], method: :delete) %>
+		<% elsif @attendance.present? %>
+				<%= button_to("Unattend", ride_ride_user_path(@ride, @user), method: :delete) %>
+		<% else %>
+				<%= button_to("Attend", ride_ride_users_path(@ride, user_id: @user.id), method: :post) %>
+		<% end %>
+		
+	
+</ul>

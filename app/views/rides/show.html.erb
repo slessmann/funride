@@ -1,27 +1,9 @@
+<h2><%= @ride.name %></h2>
+
+<% if current_user && current_user.id == @ride.user_id %>
+	<%= render "organizer_show" %>
+<% else %>
+	<%= render "attend_show" %>
+<% end %>
 
 
-<div>
-
-<% User.all.each do |u| %>
-		<%= link_to "add #{u.user_name}", ride_ride_users_path(@ride, user_id: u.id), method: :post  %>
-	<% end %>
-</div>
-
-	Ride details
-	<ul>
-
-
-		<%= @ride.name %>
-		<%= @ride.date %>
-		<%= @ride.location %>
-		<%= @ride.ride_type %>
-		<img src = '<%= @ride.image %>'>
-
-		<% if @user.id == @ride.user_id %>
-			<%= button_to("Delete Ride", [@user, @ride], method: :delete) %>
-			<% else %>
-			<%= button_to("Unattend", ride_ride_user_path(@ride, @user), method: :delete) %>
-		<% end %>
-		
-	
-</ul>

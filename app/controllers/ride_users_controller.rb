@@ -8,9 +8,14 @@ class RideUsersController < ApplicationController
 
 
 	def create 
-		u = User.find(params[:user_id])
-		r = Ride.find(params[:ride_id]) 
-		u.rides << r
+		if params[:user_id] == current_user.id
+				r = Ride.find(params[:ride_id]) 
+				current_user.rides << r
+	 		else
+				u = User.find(params[:user_id])
+				r = Ride.find(params[:ride_id]) 
+				u.rides << r	
+		end
 		redirect_to user_ride_path(current_user, r)
 	end
 

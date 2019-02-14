@@ -11,6 +11,8 @@ class RidesController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@ride = Ride.find(params[:id])
+		@attendance = RideUser.find_by(user_id: params[:user_id], ride_id: params[:id])
+		p @attendance
 	end
 	
 

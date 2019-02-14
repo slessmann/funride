@@ -1,1 +1,11 @@
-hola chicos
+
+	<% Ride.all.each do |ride| %>
+
+		<%= ride.name %>
+		<%= ride.date %>
+		<%= ride.location %>
+		<%= ride.ride_type %>
+		<img src = '<%= ride.image %>'>
+		<%= link_to "See Details", user_ride_path(current_user.id, ride.id), :class => 'navbar-link'  %> <br>
+	
+	<% end %>

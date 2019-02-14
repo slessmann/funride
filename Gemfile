@@ -60,3 +60,6 @@ gem 'carrierwave', '~> 1.0'
 
 #resize images
 gem 'mini_magick'
+
+#form style
+gem "bootstrap_form", ">= 4.1.0"
