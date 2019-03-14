@@ -1,5 +1,3 @@
-<h2><%= @ride.name %></h2>
-
 <% if current_user && current_user.id == @ride.user_id %>
 	<%= render "organizer_show" %>
 <% else %>

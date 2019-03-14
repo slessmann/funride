@@ -1,11 +1,19 @@
+Here should be a filter for category
 
+<div class="d-flex flex-wrap justify-content-center">
 	<% Ride.all.each do |ride| %>
+	<div class="card m-5" style="width: 25rem;">
+		<img class="card-img-top" src='<%= ride.image %>' alt="Card image cap">
+		<div class="card-body">
+			<h3 class="card-title"><%= ride.name %></h3>
+			<h5 class="card-title">Meet-up Location: <%= ride.location %></h5>
+			<h5 class="card-title"><%= ride.date %></h5>
+			<h4 class="card-title"><%= ride.ride_type %></h4>
+		</div>	
+		<div class="card-footer">
+				<%= link_to "See Details", user_ride_path(current_user.id, ride.id), :class => "btn btn-primary"  %> 
+		</div>
+	</div>
+<% end %>
 
-		<%= ride.name %>
-		<%= ride.date %>
-		<%= ride.location %>
-		<%= ride.ride_type %>
-		<img src = '<%= ride.image %>'>
-		<%= link_to "See Details", user_ride_path(current_user.id, ride.id), :class => 'navbar-link'  %> <br>
-	
-	<% end %>
+</div>

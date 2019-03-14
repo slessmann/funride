@@ -4,7 +4,7 @@
     <title>Funride</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -12,25 +12,28 @@
   <body>
     
 <div class= "links_general">
-<p class="navbar-text pull-right">
-	<% if user_signed_in? %>
-  		Logged in as <strong><%= current_user.user_name %></strong>.
-  		<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  		<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    
+  <% if user_signed_in? %>
+    <%= link_to "Home", root_path(current_user), :class => 'navbar-link'  %>
+    <%= link_to "My Rides", user_rides_path(current_user), :class => 'navbar-link'  %>
+    <%= link_to "Create Ride", new_user_ride_path(current_user), :class => 'navbar-link'  %>
+    <div class="navbar-text pull-left">    
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
-
-<div class= "links_specific">
-        <%= link_to "Home", root_path(current_user), :class => 'navbar-link'  %> |
-        <%= link_to "My Rides", user_rides_path(current_user), :class => 'navbar-link'  %> |
-        <%= link_to "Create Ride", new_user_ride_path(current_user), :class => 'navbar-link'  %>
-      </div>
-
-    	<% else %>
+    <div class="navbar-text pull-right">
+	    
+  		  Logged in as <strong><%= current_user.user_name %></strong>.
+  		  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  		  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      
+    </div>
+    <% else %>
   		<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   		<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-	<% end %>
-</p>
+	  <% end %>
+</div>
  
 
   	<% if notice %>
@@ -39,7 +42,10 @@
 	<% if alert %>
   		<p class="alert alert-danger"><%= alert %></p>
 	<% end %>
+
+  <div style="padding-top: 120px;">
     <%= yield %>
+  </div>
   </body>
 
 
