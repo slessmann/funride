@@ -4,18 +4,33 @@ body {
 }
 
 .links_general {
-	font-size: 22px;
-	color: white;
-	font-weight: bold;
-	padding: 12px;
-	text-align: right;
-	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEAjieux4nZL7kr-Eav1lgm7_EtilChznpCw4J3zzR86fYNMb4);
+	position: fixed;
+	width:100%;
+	height:80px;
+	font-size: 28px;
+	color: #C16200;
+	padding: 0 13px 0 13px; 
+	z-index: 1;
+	background-color: #49010F;
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+	}
+
+.navbar-link{
+	color: #E3E36A;
 }
 
 .links_specific{
 	text-align: left;
 	font-size: 22px;
 	padding: 8px;
+
+}
+
+.btn btn-primary{
+	backround-color: green;
 }
 
 

@@ -21,18 +21,31 @@
 
 	Rides I created and will attend<br>
 
-	<% @created_rides.each do |ride| %>
-
-		<%= ride.name %>
-		<%= ride.date %>
-		<%= ride.location %>
-		<%= ride.ride_type %>
-		<img src = '<%= ride.image %>'>
-		<%= link_to "See Details", "/users/#{@user.id}/rides/#{ride.id}", :class => 'navbar-link'  %> <br>
-
+<% @created_rides.each do |ride| %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <%= ride.name %>
+    </div>
+    <div class="col-sm">
+      <%= ride.date %>
+    </div>
+    <div class="col-sm">
+      <%= ride.location %>
+    </div>
+    <div class="col-sm">
+      <%= ride.ride_type %>
+    </div>
+    <div class="col-sm">
+      <%= link_to "See Details", "/users/#{@user.id}/rides/#{ride.id}", :class => 'navbar-link'  %>
+    </div>
+    <div class="col-sm">
+      <img src = '<%= ride.image %>'>
+    </div>
+  </div>
+</div>
 	
-	
-	<% end %>
+<% end %>
 
 
 </center>
