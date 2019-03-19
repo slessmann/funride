@@ -1,7 +1,7 @@
 <div class="container">
 	<center>
 	<div>
-		<li class="list-group-item active"><h3><%= @ride.name %></h3></li>
+		<li class="list-group-item mystyle"><center><h3><%= @ride.name %></h3></center></li>
 	</div>
 	</center>
 	</br>
@@ -18,9 +18,23 @@
 		</div>
 
 	</div>
-
-
 </div>
+
+</br>
+</br>
+
+<center>
+<div>
+	<li class="list-group-item mystyle" style="width: 20%"><h3>Ride Participants</h3></li>
+ 	<li class="list-group-item" style="width: 20%"><h4><%= @ride.creator.user_name %></h4></li>
+	<% @ride.users.each do |user| %>
+ 		<li class="list-group-item" style="width: 20%"><h4><%= user.user_name %></h4></li>
+ <% end %>
+</div>
+</center>
+
+</br>
+</br>
 
 </br>
 <center>
@@ -47,13 +61,13 @@
 </br>
 <center>
 
-		<% if user_signed_in? and current_user.id == @ride.user_id %>
-				<%= button_to("Delete Ride", [@user, @ride], method: :delete) %>
+	<% if user_signed_in? and current_user.id == @ride.user_id %>
+			<%= button_to("Delete Ride", [@user, @ride], method: :delete) %>
 		<% elsif @attendance.present? %>
-				<%= button_to("Unattend", ride_ride_user_path(@ride, @user), method: :delete) %>
+			<%= button_to("Unattend", ride_ride_user_path(@ride, current_user), method: :delete, :class => "btn my-btn") %>
 		<% else %>
-				<%= button_to("Attend", ride_ride_users_path(@ride, user_id: @user.id), method: :post, :class => "btn btn-primary") %>
-		<% end %>
+			<%= button_to("Attend", ride_ride_users_path(@ride, user_id: current_user.id), method: :post, :class => "btn my-btn") %>
+	<% end %>	
 </center>
 
 <style>

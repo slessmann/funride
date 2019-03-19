@@ -7,9 +7,7 @@
 </div>
 
 <div class="container">
-	<div class="row">
-		<li class="list-group-item active"><h3><%= @ride.name %></h3></li>
-	</div>
+		<li class="list-group-item mystyle"><center><h3><%= @ride.name %></h3></center></li>
 	<div class="row">
 		<div class="col-6">
 			<li class="list-group-item"><h4>Date: <%= @ride.date %></h4></li>
@@ -19,16 +17,54 @@
 		</div>
 		<div class="col-6">
 			<li class="list-group-item"><img src = '<%= @ride.image %>'></li>
-			
 		</div>
-
 	</div>
-
-
 </div>
 </br>
+
 <center>
-	<%= button_to("Delete Ride", [@user, @ride], method: :delete, :class => "btn btn-primary") %>
+<div>
+	<li class="list-group-item mystyle" style="width: 20%"><h3>Ride Participants</h3></li>
+ 	<li class="list-group-item" style="width: 20%"><h4><%= @ride.creator.user_name %></h4></li>
+	<% @ride.users.each do |user| %>
+ 		<li class="list-group-item" style="width: 20%"><h4><%= user.user_name %></h4></li>
+ <% end %>
+</div>
+</center>
+
+<center>
+<div class="input-group" style="width:20%">
+  <select class="custom-select" id="inputGroupSelect04" style="height: 60px">
+    <%= options_for_select(User.all.order(:user_name).map{|user| [user.user_name, user.id]}) %>
+  </select>
+  <div class="input-group-append">
+    <button onclick="addUser()">Add</button>
+  </div>
+</div>
+</center>
+
+
+
+ 		
+</br>
+<center>
+	<%= button_to("Delete Ride", [@user, @ride], method: :delete, :class => "btn my-btn") %>
 </center>			
 		
+<script type="text/javascript">
+	$(function(){
+	  // always pass csrf tokens on ajax calls
+	  $.ajaxSetup({
+	    headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+	  });
+	});
 	
+	function addUser() {
+		var f = $("#inputGroupSelect04");
+		let id  = f.find(":selected").val();
+		
+		$.post("/rides/<%= @ride.id %>/ride_users", {ride_id: <%= @ride.id %>, user_id: id});
+	}
+</script>
+	
+

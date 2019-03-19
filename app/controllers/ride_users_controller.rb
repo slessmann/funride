@@ -16,7 +16,7 @@ class RideUsersController < ApplicationController
 				r = Ride.find(params[:ride_id]) 
 				u.rides << r	
 		end
-		redirect_to user_rides_path(current_user, r)
+		redirect_to ride_path(r)
 	end
 
 	def destroy

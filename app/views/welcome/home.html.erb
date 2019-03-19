@@ -1,7 +1,5 @@
-Here should be a filter for category
-
 <div class="d-flex flex-wrap justify-content-center">
-	<% Ride.all.each do |ride| %>
+	<% @rides.each do |ride| %>
 	<div class="card m-5" style="width: 25rem;">
 		<img class="card-img-top" src='<%= ride.image %>' alt="Card image cap">
 		<div class="card-body">
@@ -11,7 +9,7 @@ Here should be a filter for category
 			<h4 class="card-title"><%= ride.ride_type %></h4>
 		</div>	
 		<div class="card-footer">
-				<%= link_to "See Details", user_ride_path(current_user.id, ride.id), :class => "btn btn-primary"  %> 
+				<%= link_to "See Details", user_ride_path(current_user.id, ride.id), :class => "btn my-btn"  %> 
 		</div>
 	</div>
 <% end %>

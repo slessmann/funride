@@ -1,5 +1,5 @@
 body {
-	background: grey;
+	background-color: grey;
 
 }
 
@@ -29,11 +29,47 @@ body {
 
 }
 
-.btn btn-primary{
-	backround-color: green;
+.btn.my-btn{
+	background-color: #274c5e;
+	color: white;
+	width: 160px;
+	height: 50px;
+	font-size: 22px;
 }
 
+.btn.btn-outline-secondary{
+	height: 60px;
 
+}
+
+.img-myrides{
+	border-radius: 15px;
+	height: 50px;
+	width: auto;
+}
+
+.table.table-bordered.table-dark {
+	width: 95%;
+}
+
+.my-table tr:nth-child(even) {background: #E0E3DA;}
+
+.my-table tr:nth-child(odd) {background: #FFFFF3;}
+
+.my-table tr:nth-child(1)  {background: #566270;}
+
+.tr-head{
+	background-color: #274c5e;
+	color: white;
+}
+
+td, th{
+	font-size: 28px;	
+}
+
+.navbar-link-myrides{
+	color: #E3E36A;
+}
 .create{
 	text-align: center;
 	font-size: 32px;
@@ -41,6 +77,11 @@ body {
 	background-color: green;
 	color: white;
 
+}
+
+.list-group-item.mystyle{
+	background-color: #274c5e;
+	color: white;
 }
 
 img{width: 500px;
