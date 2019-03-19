@@ -2,7 +2,7 @@ class RidesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@rides = @user.rides
 		@created_rides = @user.created_rides
 
@@ -17,21 +17,20 @@ class RidesController < ApplicationController
 
 
 	def new
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@ride = Ride.new
 	end
 
 	def create 
-		@user = User.find(params[:user_id])
+		@user = current_user
 		@user.created_rides.create(ride_params)
 
 		redirect_to user_rides_path(current_user)
 	end
 
 	def destroy 
-		@user = User.find(params[:user_id])
 		@ride = Ride.find(params[:id])
-			if @user.id == @ride.user_id 
+			if current_user.id == @ride.user_id 
 				@ride.destroy
 			end
 		redirect_to user_rides_path(current_user)
