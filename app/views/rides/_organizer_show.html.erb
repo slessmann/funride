@@ -26,8 +26,13 @@
 <div>
 	<li class="list-group-item mystyle" style="width: 20%"><h3>Ride Participants</h3></li>
  	<li class="list-group-item" style="width: 20%"><h4><%= @ride.creator.user_name %></h4></li>
-	<% @ride.users.each do |user| %>
- 		<li class="list-group-item" style="width: 20%"><h4><%= user.user_name %></h4></li>
+	<% @ride.ride_users.each do |ride_user| %>
+		<% user = ride_user.user %>
+		<li class="list-group-item" id="userName" style="width: 20%"><h4><%= user.user_name %></h4>
+			 <div class="input-group-append">
+    			<button onclick="deleteUser(<%=  ride_user.id %>, <%= user.id %>)">Delete</button>
+  			</div>
+		</li>
  <% end %>
 </div>
 </center>
@@ -64,6 +69,14 @@
 		let id  = f.find(":selected").val();
 		
 		$.post("/rides/<%= @ride.id %>/ride_users", {ride_id: <%= @ride.id %>, user_id: id});
+	}
+
+	function deleteUser(ru_id, id) {
+
+		$.ajax({url: "/rides/<%= @ride.id %>/ride_users/" + ru_id,
+				data: {user_id: id},
+				type: "DELETE"});
+
 	}
 </script>
 	

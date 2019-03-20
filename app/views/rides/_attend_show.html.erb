@@ -64,7 +64,7 @@
 	<% if user_signed_in? and current_user.id == @ride.user_id %>
 			<%= button_to("Delete Ride", [@user, @ride], method: :delete) %>
 		<% elsif @attendance.present? %>
-			<%= button_to("Unattend", ride_ride_user_path(@ride, current_user), method: :delete, :class => "btn my-btn") %>
+			<%= button_to("Unattend", ride_ride_user_path(@ride, @attendance.id), method: :delete, :class => "btn my-btn") %>
 		<% else %>
 			<%= button_to("Attend", ride_ride_users_path(@ride, user_id: current_user.id), method: :post, :class => "btn my-btn") %>
 	<% end %>	

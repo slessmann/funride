@@ -20,11 +20,10 @@ class RideUsersController < ApplicationController
 	end
 
 	def destroy
-		@ride_user_id = RideUser.where(ride_id: params[:ride_id], user_id: params[:id])
+		ride_user = RideUser.find(params[:id])
 	
-		@ride_user_id.destroy_all
-		redirect_to user_ride_path(current_user, params[:ride_id])
-		
+		ride_user.destroy
+		redirect_to ride_path(params[:ride_id])
 	end
 
 
