@@ -1,0 +1,40 @@
+<center>
+<li class="list-group-item mystyle" style="width: 800px; font-family: Verdana, sans-serif"><h3>Here you can edit your ride</h3></li>
+</center>
+</br>
+
+<center>
+
+<%= bootstrap_form_for [@user, @ride] do |f| %>
+
+  <div class="standard-label">
+    <%= f.text_field :name, label: 'Ride Name' %>
+    <%= f.text_field :location, label: 'Meet-up Location' %>
+  </div>
+
+  <div class="date-label">
+    <%= f.date_field :date?, label: 'Date' %>
+  </div>
+
+  <div class="time-label">
+    <%= f.time_field :start_time %>
+  </div>
+
+  <div class="select-label">
+    <%= f.select :ride_type, ['Downhill', 'Enduro', 'Road', 'XC'] %>
+  </div>
+
+  <div class="description-label">
+    <%= f.text_field :description, label: 'Short Description of Ride' %>
+  </div>
+
+  <div class="image-label">
+    <%= f.file_field :image %>
+  </div>
+
+  </br>
+
+   <button type="submit" class="btn my-btn">Submit</button>
+
+</center>
+<% end %>

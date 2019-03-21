@@ -13,9 +13,6 @@ class RidesController < ApplicationController
 		@attendance = RideUser.find_by(user_id: current_user.id, ride_id: params[:id])
 	end
 	
-
-
-
 	def new
 		@user = current_user
 		@ride = Ride.new
@@ -24,6 +21,18 @@ class RidesController < ApplicationController
 	def create 
 		@user = current_user
 		@user.created_rides.create(ride_params)
+
+		redirect_to user_rides_path(current_user)
+	end
+
+	def edit
+		@user = current_user
+		@ride = Ride.find(params[:id])
+	end
+
+	def update
+		@ride = Ride.find(params[:id])
+		@ride.update(ride_params)
 
 		redirect_to user_rides_path(current_user)
 	end
