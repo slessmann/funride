@@ -48,27 +48,56 @@ body {
 	width: auto;
 }
 
-.table.table-bordered.table-dark {
+.table.table-bordered.my-table {
 	width: 95%;
 }
 
-.my-table tr:nth-child(even) {background: #E0E3DA;}
+.my-table tr:nth-child(even) {background: #E6E6E6;}
 
-.my-table tr:nth-child(odd) {background: #FFFFF3;}
+.my-table tr:nth-child(odd) {background: #F2F2F2;}
 
-.my-table tr:nth-child(1)  {background: #566270;}
+.my-table tr:nth-child(1)  {background: #274c5e; color: white;}
 
 .tr-head{
 	background-color: #274c5e;
 	color: white;
+	text-align: center;	
 }
 
-td, th{
-	font-size: 28px;	
+th {
+	font-size: 28px;
+	text-align: center;	
+	color: white;
+	}
+
+td {
+	font-size: 28px;
+	text-align: center;	
+	color: #274c5e;
+}
+
+.h2-index{
+	font-family: Verdana, sans-serif;
+	background-color: #274c5e;
+	color: white;
+	width: 25.6%;
+	margin-left: 2.5%;
+	text-indent: 2.6%;
+	
+}
+
+.h2-index2{
+	font-family: Verdana, sans-serif;
+	background-color: #274c5e;
+	color: white;
+	width: 12%;
+	margin-left: 2.5%;
+	text-indent: 2.6%;
+	
 }
 
 .navbar-link-myrides{
-	color: #E3E36A;
+	color: #274c5e;;
 }
 .create{
 	text-align: center;
@@ -107,7 +136,7 @@ img{width: 500px;
 }
 
 .select-label{
-	width: 18%;
+	width: 21%;
 
 	font-size: 22px;
 

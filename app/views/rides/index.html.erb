@@ -1,10 +1,12 @@
 <div>
 
-<center>
 
-<h2>Rides I created and will attend</h2><br>
+
+<h3 class="h2-index">Rides I created and will attend</h3>
+
+<center>	
+<table class="table table-bordered my-table">
 	
-<table class="table table-bordered table-dark">
 	<tr class="tr-head">
 		<th>Ride Name</th>
 		<th>Date</th>
@@ -13,6 +15,7 @@
 		<th>Image</th>
 		<th>Details</th>
 	</tr>
+
 <% @created_rides.each do |ride| %>
 	<tr>
 		<td><%= ride.name %></td>
@@ -24,12 +27,13 @@
 	</tr>
 
 <% end %>	
-</table>
+</table></br>
+</center>
 
-<h2>Rides I attend</h2><br>
+<h3 class="h2-index2">Rides I attend</h3>
 
-
-<table class="table table-bordered table-dark"">
+<center>
+<table class="table table-bordered my-table">
 	<tr class="tr-head">
 		<th>Ride Name</th>
 		<th>Date</th>

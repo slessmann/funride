@@ -1,44 +1,41 @@
-<div class="create">
-<p>
-Where do you wanna ride next? <br>
-<div>
-
-</div>
-</p>
-</div>
+<center>
+<li class="list-group-item mystyle" style="width: 800px; font-family: Verdana, sans-serif"><h3>Where do you want to ride next?</h3></li>
+</center>
+</br>
 
 <center>
 
 <%= bootstrap_form_for [@user, @ride] do |f| %>
 
   <div class="standard-label">
-    <%= f.text_field :name, label: 'Ride Name' %><br />
-    <%= f.text_field :location, label: 'Meet-up Location:' %><br />
+    <%= f.text_field :name, label: 'Ride Name' %>
+    <%= f.text_field :location, label: 'Meet-up Location' %>
   </div>
 
   <div class="date-label">
-    <%= f.date_field :date?, label: 'Date' %><br />
+    <%= f.date_field :date?, label: 'Date' %>
   </div>
 
   <div class="time-label">
-    <%= f.time_field :start_time %><br />
+    <%= f.time_field :start_time %>
   </div>
 
   <div class="select-label">
-    <%= f.select :ride_type, ['Downhill', 'Enduro', 'Road', 'XC'] %><br />
+    <%= f.select :ride_type, ['Downhill', 'Enduro', 'Road', 'XC'] %>
   </div>
 
   <div class="description-label">
-    <%= f.text_field :description, label: 'Short Description of Ride' %><br />
+    <%= f.text_field :description, label: 'Short Description of Ride' %>
   </div>
 
   <div class="image-label">
     <%= f.file_field :image %>
   </div>
 
+  </br>
 
-  <div class="submit-button">
-    <%= f.submit %>
-  </div>
+   <button type="submit" class="btn my-btn">Submit</button>
+
 </center>
 <% end %>
+

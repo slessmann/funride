@@ -1,7 +1,7 @@
 <div class="container">
 	<center>
 	<div>
-		<li class="list-group-item mystyle"><center><h3><%= @ride.name %></h3></center></li>
+		<li class="list-group-item mystyle" style="font-family: Verdana, sans-serif"><center><h3><%= @ride.name %></h3></center></li>
 	</div>
 	</center>
 	</br>
@@ -24,29 +24,19 @@
 </br>
 
 <center>
-<div>
-	<li class="list-group-item mystyle" style="width: 20%"><h3>Ride Participants</h3></li>
- 	<li class="list-group-item" style="width: 20%"><h4><%= @ride.creator.user_name %></h4></li>
-	<% @ride.users.each do |user| %>
- 		<li class="list-group-item" style="width: 20%"><h4><%= user.user_name %></h4></li>
- <% end %>
-</div>
-</center>
+	<div>
+		<li class="list-group-item mystyle" style="font-family: Verdana, sans-serif; width: 56%"><center><h3>Here we start</h3></center></li>
+	</div>
 
-</br>
-</br>
-
-</br>
-<center>
 <div id="map">
 	    <script>
 		// Initialize and add the map
 			function initMap() {
   		// The location of Uluru
-  				var uluru = {lat: -25.344, lng: 131.036};
+  				var uluru = {lat: 4.252428, lng: -74.184135};
   		// The map, centered at Uluru
   				var map = new google.maps.Map(
-      				document.getElementById('map'), {zoom: 4, center: uluru});
+      				document.getElementById('map'), {zoom: 6, center: uluru});
   		// The marker, positioned at Uluru
   				var marker = new google.maps.Marker({position: uluru, map: map});
 			}
@@ -57,7 +47,20 @@
  </script>
 </div>
 </center>
-
+</br>
+</br>
+<center>
+<div>
+	<li class="list-group-item mystyle" style="width: 20%; font-family: Verdana, sans-serif">
+		<h3>Ride Participants</h3>
+	</li>
+ 	<li class="list-group-item" style="width: 20%"><h4><%= @ride.creator.user_name %></h4></li>
+	<% @ride.users.each do |user| %>
+ 		<li class="list-group-item" style="width: 20%"><h4><%= user.user_name %></h4></li>
+ <% end %>
+</div>
+</center>
+</br>
 </br>
 <center>
 

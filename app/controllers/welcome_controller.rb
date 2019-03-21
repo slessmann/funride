@@ -4,7 +4,8 @@ class WelcomeController < ApplicationController
 			@rides = Ride.all
 		else
 			@rides = Ride.where("name like '%#{params[:search]}%' OR
-								 ride_type like '%#{params[:search]}%'")
+								 ride_type like '%#{params[:search]}%' OR
+								 date like '%#{params[:search]}%'")
 		end
 	end
 

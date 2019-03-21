@@ -1,11 +1,4 @@
 
-<div>
-
-<% User.all.each do |u| %>
-		<%= link_to "add #{u.user_name}", ride_ride_users_path(@ride, user_id: u.id), method: :post  %>
-	<% end %>
-</div>
-
 <div class="container">
 		<li class="list-group-item mystyle"><center><h3><%= @ride.name %></h3></center></li>
 	<div class="row">
@@ -20,6 +13,35 @@
 		</div>
 	</div>
 </div>
+
+</br>
+</br>
+
+<center>
+<div>
+	<li class="list-group-item mystyle" style="font-family: Verdana, sans-serif; width: 56%"><center><h3>Here we start</h3></center></li>
+</div>
+<div id="map">
+	    <script>
+		// Initialize and add the map
+			function initMap() {
+  		// The location of Uluru
+  				var uluru = {lat: 4.252428, lng: -74.184135};
+  		// The map, centered at Uluru
+  				var map = new google.maps.Map(
+      				document.getElementById('map'), {zoom: 6, center: uluru});
+  		// The marker, positioned at Uluru
+  				var marker = new google.maps.Marker({position: uluru, map: map});
+			}
+    </script>
+ </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeFMzGBT0FWPvyeOzJJk-NYtJ3izcn8KA&callback=initMap">
+ </script>
+</div>
+</center>
+
+</br>
 </br>
 
 <center>
@@ -48,13 +70,12 @@
 </div>
 </center>
 
-
-
- 		
+</br> 		
 </br>
 <center>
 	<%= button_to("Delete Ride", [@user, @ride], method: :delete, :class => "btn my-btn") %>
-</center>			
+</center>	
+
 		
 <script type="text/javascript">
 	$(function(){
@@ -80,4 +101,10 @@
 	}
 </script>
 	
-
+<style>
+	#map {
+   		width: 56%;
+   		height: 600px;
+   		background-color: grey;
+ 	}
+</style>
